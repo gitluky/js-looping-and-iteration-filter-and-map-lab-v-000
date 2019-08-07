@@ -20,10 +20,8 @@ function exactMatch (drivers, criteria) {
 }
 
 function exactMatchToList (drivers, criteria) {
-  return drivers.filter( function (driver) {
-    const key = Object.keys(criteria)[0];
-    return driver[key] === criteria[key];
-  }).map( function (driver) {
+  return exactMatch (drivers, criteria)
+  .map( function (driver) {
     return driver.name;
   });
 }
